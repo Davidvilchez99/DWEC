@@ -1,0 +1,16 @@
+let fechaHoy = new Date();
+document.write(fechaHoy+"<br>");
+let fecha85 = new Date();
+fecha85.setDate(fechaHoy.getDate() +5);
+document.write(fecha85+"<br>");
+let fecha187 = new Date();
+fecha187.setDate(fechaHoy.getDate() +187);
+document.write(fecha187+"<br>");
+let suma2años = new Date();
+suma2años.setHours(fecha85.getDate() +2);
+document.write(suma2años+"<br>");
+let restar24 = new Date();
+restar24.setHours(fecha187.getDate()-24);
+document.write(restar24+"<br>");
+let fechaResto = fecha85.getDate() - fecha187.getDate();
+document.write(fechaResto+"<br>");
