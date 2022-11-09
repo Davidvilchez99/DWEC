@@ -42,11 +42,13 @@ window.onload = () => {
                 }
         }
     )}
-}
-juego();
+}juego();
 // Boton cambia colores
 const btn = document.getElementById('newColors');
-    btn.addEventListener('click', juego);
+    btn.addEventListener('click', ()=>{
+        document.getElementById('jugar').innerHTML = "";
+        juego();
+    });
 }
 </script>
 <body align="center">

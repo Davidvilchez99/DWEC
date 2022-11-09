@@ -1,20 +1,52 @@
-import { Book } from "./book.js";
-import { BookList } from "./bookList.js";
+import { Book } from "./clases.js";
+import { BookList } from "./clases.js";
 
-window.onload = () =>{
-    let list = new BookList();
-    const title = document.getElementById("title").value;
-    const author = document.getElementById("author").value;
-    const genre = document.getElementById("genre").value;
-    const addBookBTN = document.getElementsByClassName("btn btn-primary btn-lg btn-block")[0];
-    const divBookList = document.getElementsByClassName("col-md-12")[0];
-    addBookBTN.addEventListener('click', ()=>{
-        let book = new Book(title, author, genre);
-        list.addBook(book);
-        const ulListBook = document.getElementById("readingList");
-        const li = document.createElement("li");
-        ulListBook.appendChild(li);
-        // li.style.width = "200px";
-        // li.style.heigth = "40px";
+window.onload = function(){
+    var myBookList = new BookList();
+
+    document.querySelectorAll("button")[0].addEventListener("click", () =>{   
+        let title = document.getElementById("title").value;
+        let author = document.getElementById("author").value;
+        let genre = document.getElementById("genre").value;
+        myBookList.add(new Book(title, author, genre));
+
+        pintarListaLibros(myBookList);
+    });
+
+
+    document.getElementById("readingList").addEventListener("click", () =>{     
+        myBookList.finishCurrentBook();
+        pintarListaLibros(myBookList);
+    }); 
+    
+}
+
+
+function pintarListaLibros(lista)
+{
+    document.getElementById("readingList").innerHTML = "";
+    lista.libro.forEach( (libro) =>{
+            let read;
+
+            if (!libro.read)
+                read="false";
+            else
+            {
+                const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                read="Read on " + libro.readDate.toLocaleDateString('en-EN', options);
+            }
+
+           //Añadir libro en interfaz
+           bookEntry = `<li class="list-group-item d-flex justify-content-between"><div>
+           <h6 class="my-0"><b>${libro.title}</b></h6> <small class="text-muted" contenteditable="true">${libro.author}&nbsp;</small>
+           </div> <span class="text-muted">${read}</span>
+           </li>`;
+           
+              
+           document.getElementById("readingList").innerHTML += bookEntry;
+           
     })
+
+    document.getElementById("booksRead").innerHTML = lista.numberBooksRead + " of "+ lista.totalBooks;
+    
 }

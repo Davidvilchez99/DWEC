@@ -37,7 +37,7 @@ class BookList {
 
 	constructor() {
         this.nextBook = undefined;
-        this.currentBook = undefined;
+        this.currentBook = 0;
         this.lastBook = undefined;
         this.books = [];
     }
