@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    window.onload = () => {
+        const imgs = document.getElementsByTagName('img');
+        for (i=0; i<document.images.length; i++){
+            imgs[i].onmousedown = function(event) {
+            let shiftX = event.clientX - imgs[i].getBoundingClientRect().left;
+            let shiftY = event.clientY - imgs[i].getBoundingClientRect().top;
+
+            imgs[i].style.position = 'absolute';
+            imgs[i].style.zIndex = 1000;
+            document.body.append(imgs[i]);
+
+            moveAt(event.pageX, event.pageY);
+
+            // mueve la pelota a las coordenadas (pageX, pageY)
+            // tomando la posición inicial en cuenta
+            function moveAt(pageX, pageY) {
+            imgs[i].style.left = pageX - shiftX + 'px';
+            imgs[i].style.top = pageY - shiftY + 'px';
+            }
+
+            function onMouseMove(event) {
+            moveAt(event.pageX, event.pageY);
+            }
+
+            // mueve la pelota con mousemove
+            document.addEventListener('mousemove', onMouseMove);
+
+            // suelta la pelota, elimina el manejador innecesario
+            imgs[i].onmouseup = function() {
+            document.removeEventListener('mousemove', onMouseMove);
+            imgs[i].onmouseup = null;
+            };
+            };
+
+            imgs[i].ondragstart = function() {
+            return false;
+            };
+        }
+    }
+</script>
+<body>
+    <img width="200px" height="200px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/2048px-Unofficial_JavaScript_logo_2.svg.png" alt="">
+    <img width="200px" height="200px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/PHP-logo.svg/1200px-PHP-logo.svg.png" alt="">
+    <img width="200px" height="200px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/250px-CSS3_logo_and_wordmark.svg.png" alt="">
+    <img width="200px" height="200px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/250px-HTML5_logo_and_wordmark.svg.png" alt="">
+</body>
+</html>

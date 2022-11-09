@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    // https://regex101.com/library?orderBy=RELEVANCE&search=1+chars
+    window.onload = () =>{
+        const btnMayuscula = document.getElementById('btnMayuscula');
+
+        function validarMayuscula(){
+            const parametro = document.getElementById('parametro').value;
+            var validacion = new RegExp("[A-Z]+");
+                if(parametro.match(validacion)){
+                    console.log("El formato es correcto");
+                }
+                else{
+                    console.log("El parámetro debe contener al menos un carácter en mayúscula");
+                }
+        }
+        btnMayuscula.addEventListener('click', validarMayuscula);
+
+        const btnCaracteresEspeciales = document.getElementById('btnCaracteresEspeciales');
+
+        function validarCaracteresEspeciales(){
+            const parametroCaracteresEspeciales = document.getElementById('parametroCaracteresEspeciales').value;
+            var validacion = new RegExp("[!@#$%^&]+");
+                if(parametroCaracteresEspeciales.match(validacion)){
+                    console.log("El formato es correcto");
+                }
+                else{
+                    console.log("El parámetro debe contener al menos uno de los siguientes caracteres: !@#$%^&");
+                }
+        }
+        btnCaracteresEspeciales.addEventListener('click', validarCaracteresEspeciales);
+
+        const btnCorreo =document.getElementById('btnCorreo');
+
+        function validarCorreo(){
+            const parametroCorreo = document.getElementById('parametroCorreo').value;
+            var validacion = new RegExp("^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$");
+                if(parametroCorreo.match(validacion)){
+                    console.log("El formato es correcto");
+                }
+                else{
+                    console.log("El parámetro debe tener el formato correcto de un email");
+                }
+        }
+        btnCorreo.addEventListener('click', validarCorreo);
+
+        const btnTarjeta = document.getElementById('btnTarjeta');
+
+        function validarTarjetaCredito(){
+            const parametroTarjeta = document.getElementById('parametroTarjeta').value;
+            var validacion = new RegExp(/(^5[1-5]|^4|^3[47])|(^6011|65|64[4-9]|622(1(2[6-9]|[3-9]\d)|[2-8]\d{2}|9([01]\d|2[0-5])))\d+/g);
+                if(parametroTarjeta.match(validacion)){
+                    console.log("El formato es correcto");
+                }
+                else{
+                    console.log("El parámetro debe tener el formato correcto de una tarjeta de crédito");
+                }
+        }
+        btnTarjeta.addEventListener('click', validarTarjetaCredito);
+
+        const btnParametroCaracteres8 = document.getElementById('btnParametroCaracteres8');
+
+        function validarLongitud(){
+            const parametroCaracteres8 = document.getElementById('parametroCaracteres8').value;
+            var validacion = new RegExp('^(?=.*\\d).{8,}$', '');
+                if(parametroCaracteres8.match(validacion)){
+                    console.log("El formato es correcto");
+                }
+                else{
+                    console.log("El parámetro debe tener al menos 8 caracteres");
+                }
+        }
+        btnParametroCaracteres8.addEventListener('click', validarLongitud);
+
+        const btnParametroNumero = document.getElementById('btnParametroNumero');
+
+        function validarNumero(){
+            const parametroNumero = document.getElementById('parametroNumero').value;
+            var validacion = new RegExp(".+");
+                if(parametroNumero.match(validacion)){
+                    console.log("El formato es correcto");
+                }
+                else{
+                    console.log("El parámetro debe contener al menos un dígito");
+                }
+        }
+        btnParametroNumero.addEventListener('click', validarNumero);
+    }
+</script>
+<body>
+    <label>1 mayúscula: </label><input id="parametro" type="text"><input id="btnMayuscula" type="submit" value="Validar">
+    <br><br>
+    <label>Caracteres Especiales: </label><input id="parametroCaracteresEspeciales" type="text"><input id="btnCaracteresEspeciales" type="submit" value="Validar">
+    <br><br>
+    <label>Correo: </label><input id="parametroCorreo" type="text"><input id="btnCorreo" type="submit" value="Validar">
+    <br><br>
+    <label>Tarjetas de credito: </label><input id="parametroTarjeta" type="text"><input id="btnTarjeta" type="submit" value="Validar">
+    <br><br>
+    <label>Mínimo 8 caracteres: </label><input id="parametroCaracteres8" type="text"><input id="btnParametroCaracteres8" type="submit" value="Validar">
+    <br><br>
+    <label>Mínimo 1 caracter: </label><input id="parametroNumero" type="text"><input id="btnParametroNumero" type="submit" value="Validar">
+</body>
+</html>

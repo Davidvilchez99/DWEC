@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<script>
+    // https://regex101.com/library?orderBy=RELEVANCE&search=1+chars
+    window.onload = () =>{
+
+form.addEventListener('submit', (e) =>{
+    const submit = document.getElementById('submit');
+
+    const nameParameter = document.getElementById('name').value;
+    const surnameParameter = document.getElementById('surname').value;
+    const phoneParameter = document.getElementById('phone').value;
+    const emailParameter = document.getElementById('email').value;
+    const passwordParameter = document.getElementById('password').value;
+    const repeatPasswordParameter = document.getElementById('repeatPassword').value;
+
+    const pName = document.getElementById('pName');
+    const pSurname = document.getElementById('pSurname');
+    const pEmail = document.getElementById('pEmail');
+    const pPhone = document.getElementById('pPhone');
+    const pPassword = document.getElementById('pPassword');
+    const pRepeatPassword = document.getElementById('pRepeatPassword');
+        
+    var nameValidation = new RegExp(/^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]+[\s]*)+$/);
+        if(nameParameter.match(nameValidation)){
+            console.log("El formato es correcto");
+            pName.innerHTML = "";
+        }
+        else{
+            pName.innerHTML = "El nombre debe empezar por mayúscula.";
+            e.preventDefault();
+        }
+    
+    var surnameValidation = new RegExp(/^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]+[\s]*)+$/);
+        if(surnameParameter.match(surnameValidation)){
+            console.log("El formato es correcto");
+        }
+        else{
+            pSurname.innerHTML = "El o los apellidos debe empezar por mayúscula.";
+            e.preventDefault();
+        }
+
+    var emailValidation = new RegExp("^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$");
+        if(emailParameter.match(emailValidation)){
+            console.log("El formato es correcto");
+        }
+        else{
+            pEmail.innerHTML = "El email debe tener el formato correcto de un email (...@....com).";
+            e.preventDefault();
+        }
+    
+    var phoneValidation = new RegExp(/^\d{9}$/);
+        if(phoneParameter.match(phoneValidation)){
+            console.log("El formato es correcto");
+        }
+        else{
+            pPhone.innerHTML = "El telefono debe estar junto.";
+            e.preventDefault();
+        }
+
+    var passwordValidation = new RegExp(".{8,}");
+        if(passwordParameter.match(passwordValidation)){
+            console.log("El formato es correcto");
+        }
+        else{
+            pPassword.innerHTML = "La contraseña debe tener 8 caracteres como mínimo.";
+            e.preventDefault();
+        }
+
+        if(repeatPasswordParameter == passwordParameter){
+            console.log("El formato es correcto");
+        }
+        else{
+            pRepeatPassword.innerHTML = "Debe escribir la misma contraseña.";
+            e.preventDefault();
+        }
+    
+
+})
+}
+</script>
+<body>
+    <div id="contenedor">
+        <div><img src="./Captura.JPG"></div>
+        <div id="form">
+            <h2>Welcome to crowdise</h2>
+            <p>Let´s get you all set up so you can verify your nonprofit and begin setting up your first campaign!</p>
+            <p>Already have an account?<a>Log in</a></p>
+            <form action="">
+                <label id="label1">First Name</label><label id="labelSurname">Second Name</label><br>
+                <input required type="text" id="name"/><input required type="text" id="surname"/><br>
+                <label id="label1">Phone</label><label id="labelEmail">Email</label><br>
+                <input required type="tel" id="phone"/><input required type="email" id="email"/><br>
+                <label id="label1">Contraseña</label><label id="labelRepeatPassword">Repetir Contraseña</label><br>
+                <input required type="password" id="password"/><input required type="password" id="repeatPassword"/><br>
+                <input id="checkBox" type="checkBox"><label>Yes, I want to receive Crowdrise's emails</label><br>
+                <input id="checkBox" required type="checkBox"><label>I agree to the <a>Terms</a>, <a>Privacy Policity</a> and <a>Fees</a>.</label>
+                <br><br>
+                <input id="submit" type="submit" value="Sign Up"/><br>
+            </form>
+            <div id="contenedorP">
+                <p id="pName"></p>
+                <p id="pSurname"></p>
+                <p id="pPhone"></p>
+                <p id="pEmail"></p>
+                <p id="pPassword"></p>
+                <p id="pRepeatPassword"></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

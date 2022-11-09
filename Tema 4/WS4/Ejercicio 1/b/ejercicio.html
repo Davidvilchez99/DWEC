@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href>
+</head>
+<script>
+    window.onload = () =>{
+
+        const btnTemaMinimalista = document.getElementById('temaMinimalista');
+        const btnTemaNormal = document.getElementById('temaNormal');
+        
+        function modificarLinkCssNormal(){
+            document.getElementsByTagName('link')[0].href = 'ejercicio.css';
+        }
+        function modificarLinkCssMinimalista(){
+            document.getElementsByTagName('link')[0].href = '';
+        }
+        btnTemaNormal.addEventListener('click', modificarLinkCssNormal);
+        btnTemaMinimalista.addEventListener('click', modificarLinkCssMinimalista);
+        // btnTemaMinimalista.addEventListener('click', );
+    }
+</script>
+<body>
+        <div id="aside"></div>
+        <div id="divBotones">
+            <p id="pBotones">
+                <button id="temaNormal">Tema Normal</button>
+                <button id="temaMinimalista">Tema Minimalista</button>
+            </p>
+        <h1>Pagina de ejemplo</h1>
+        <p>En esta pagina vamos a comprobar lo facil que es aplicar estilos mediante css a un documento seleccionado</p>
+        <p>Lo ideal es que al seleccionar un estilo acste permanezca siempre igual para el usuario. Hasta ahora no hemos visto como hacerlo. A¿se te ocurre como podemos hacerlo?</p>
+        <p>Utilizando css podemos incluso ocultar partes del sitio</p>
+        <p id="parrafoFantasma"><b>Este parrafo debe ser solo visible en el tema Normal</b></p>
+        <p id="marcoFinal">Esto esta dentro de un marco</p>
+        </div>
+    </body>
+</html>

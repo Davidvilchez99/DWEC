@@ -1,0 +1,62 @@
+#contenedor{
+    margin: 4%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 45% 35%;
+}
+img{
+    width: 370px;
+    height: auto;
+    float: right;
+}
+#form{
+    background-color: white;
+}
+a{
+    color: rgb(0, 119, 255);
+    text-decoration: none;
+}
+input{
+    margin: 2%;
+    height: 30px;
+    width: 200px;
+    border-radius: 5px;
+}
+#label1{
+    margin-left: 2%;
+}
+#labelSurname{
+    margin-left: 155px;
+}
+#labelEmail{
+    margin-left: 190px;
+}
+#labelRepeatPassword{
+    margin-left: 155px;
+}
+#checkBox{
+    width: auto;
+    height: auto;
+}
+#submit{
+    color: white;
+    background-color: rgb(0, 119, 255);
+    width: 90px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+}
+#submit:hover{
+    background-color: orange;
+}
+#contenedorP>p{
+    color: red;
+}
+
+
+body {
+    background-image: url(./Violet\ gradient\ background.jfif);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }

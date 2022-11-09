@@ -1,0 +1,30 @@
+#aside{
+    background-color:blue;
+    height: 100%;
+    width: 20%;
+    position: absolute;
+    
+}
+body{
+    background-color: rgb(235, 235, 162);
+}
+#divBotones{
+    margin-left: 25%;
+}
+#btnTemaMinimalista{
+    color: blue;
+}
+#btnTemaNormal{
+    color: blue;
+}
+#pBotones{
+    border: solid blue;
+    background-color: rgb(149, 149, 239);
+}
+#marcoFinal{
+    border: solid black;
+    background-color: yellow;
+}
+#parrafoFantasma{
+    visibility: visible;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+
+    function alante(){
+            indice ++;
+            imagen.src = imgArray[indice];
+            if (indice == imgArray.length-1){
+                alanteBTN.disabled = true;
+            }
+            else
+                atrasBTN.disabled = false;
+    }
+    function atras(){
+            indice --;
+            imagen.src = imgArray[indice];
+            if (indice == 0){
+                atrasBTN.disabled = true;
+            }else
+                alanteBTN.disabled = false;
+
+    }
+
+    window.onload = () =>{
+    imgArray = ['https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Pedro_S%C3%A1nchez_recibe_al_presidente_de_la_Rep%C3%BAblica_de_Bulgaria%2C_Rumen_Radev_%285%29_%28cropped%29.jpg/220px-Pedro_S%C3%A1nchez_recibe_al_presidente_de_la_Rep%C3%BAblica_de_Bulgaria%2C_Rumen_Radev_%285%29_%28cropped%29.jpg',
+        "https://upload.wikimedia.org/wikipedia/commons/d/d7/Mariano_Rajoy_in_2018.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Pablo_Iglesias_2020_%28portrait%29.jpg/640px-Pablo_Iglesias_2020_%28portrait%29.jpg"
+        ];
+        indice = 0;
+    atrasBTN = document.getElementById("atras");
+    alanteBTN = document.getElementById("alante");
+    imagen = document.getElementsByTagName("img")[0];
+
+        imagen.src=imgArray[0];
+        alanteBTN.addEventListener('click', alante)
+        atrasBTN.addEventListener('click', atras)
+        }
+</script>
+<body>
+    <img style="width: 200px; height: 200px;" alt="imagen">
+    <button id="atras"><-</button>
+    <button id="alante">-></button>
+</body>
+</html>

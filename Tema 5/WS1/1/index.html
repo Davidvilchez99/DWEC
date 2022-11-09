@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1,4,5,6</title>
+</head>
+<script>
+    window.onload = () =>{
+        enlaces = document.getElementsByTagName("a");
+        console.log(enlaces.length);
+        enlacePenultimo = (enlaces[enlaces.length - 2].href);
+        console.log(enlacePenultimo);
+        let contador = 0;
+        for (let i = 0; i < enlaces.length; i++) {
+            if(enlaces[i].href.includes("//www.google.es/")){
+                contador++;
+            }
+        }
+        console.log(contador);
+        
+        let enlacesParrafo = document.getElementsByTagName("p")[2].getElementsByTagName("a").length;
+        console.log(enlacesParrafo);
+}
+</script>
+<body>
+    <p><a href="//www.google.es/"> Parrafo 1</a></p>
+    <p><a href="//www.google.es/"> Parrafo 2</a></p>
+    <p><a href="//www.google.es/"> Parrafo 3</a></p>
+</body>
+</html>

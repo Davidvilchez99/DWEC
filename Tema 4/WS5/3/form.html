@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<script>
+    // https://regex101.com/library?orderBy=RELEVANCE&search=1+chars
+    window.onload = () =>{
+        const submit = document.getElementById('submit');
+        const parametro = document.getElementById('username').value;
+        const username = document.getElementById('username');
+        const form = document.getElementById('form');
+
+        function validarUsername(event){
+            const liLowercase = document.getElementById('liLowercase');
+            const liUppercase = document.getElementById('liUppercase');
+            const liSixCharacters = document.getElementById('liSixCharacters');
+            var regexpUppercase = new RegExp("[A-Z]+");
+            var regexpLowercase = new RegExp("[a-z]+");
+            var regexpSixCharacters = new RegExp(".{6,}");
+                if(event.target.value.match(regexpUppercase)){
+                    liUppercase.style.textDecoration = "line-through";
+                }else{
+                    liUppercase.style.textDecoration = "none";
+                }
+                if(event.target.value.match(regexpLowercase)){
+                    liLowercase.style.textDecoration = "line-through";
+                }else{
+                    liLowercase.style.textDecoration = "none";
+                }
+                if(event.target.value.match(regexpSixCharacters)){
+                    liSixCharacters.style.textDecoration = "line-through";
+                }else{
+                    liSixCharacters.style.textDecoration = "none";
+                }
+        }username.addEventListener('keyup', validarUsername);
+    }
+</script>
+<body>
+    <form id="form">
+        <input id="username" type="text" placeholder="username">
+        <br><br>
+        <ul>
+            <li id="liLowercase">1 lowercase character</li>
+            <li id="liUppercase">1 uppercase character</li>
+            <li id="liSixCharacters">6 minimum characters</li>
+        </ul>
+        <input id="submit" type="submit" value="Submit">
+    </form>
+</body>
+</html>

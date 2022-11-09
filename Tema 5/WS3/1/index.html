@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    window.onload = () =>{
+        startBTN = document.getElementById("start");
+        stopBTN = document.getElementById("stop");
+        resetBTN = document.getElementById("reset");
+        DIVmilisegundos = document.getElementById("milisegundos");
+        DIVsegundos = document.getElementById("segundos");
+        DIVminutos = document.getElementById("minutos");
+        DIVmilisegundos.innerHTML = 00;
+        DIVsegundos.innerHTML = 00;
+        DIVminutos.innerHTML = 00;
+        segundos = 0;
+        milisegundos = 0;
+        minutos = 0;
+        function start(){
+            cronometro = setInterval(
+                function(){
+                    if(milisegundos == 60){
+                        milisegundos =0;
+                        segundos++;
+                        DIVsegundos.innerHTML = segundos
+                        
+                        if(segundos == 60){
+                            segundos = 0;
+                            minutos++;
+                            DIVminutos.innerHTML = minutos
+                        }
+                    }
+                    DIVmilisegundos.innerHTML = milisegundos;
+                    milisegundos++;
+                }
+            ,10)
+        }
+        function stop(){
+            clearInterval(cronometro);
+        }
+        function reset(){
+
+            DIVmilisegundos.innerHTML = 00;
+            DIVsegundos.innerHTML = 00;
+            DIVminutos.innerHTML = 00;
+            segundos = 0;
+            milisegundos = 0;
+            minutos = 0;
+            clearInterval(cronometro);
+
+        }
+        startBTN.addEventListener('click', start);
+        stopBTN.addEventListener('click', stop);
+        resetBTN.addEventListener('click', reset);
+
+
+}
+</script>
+<style>
+    @font-face{
+    font-family:alarm;
+    src:url(alarm.ttf);}
+    body{
+        margin-top: 10%;;
+        background-color: orange;
+        text-align: center;
+        color: white;
+    }
+    button{
+        border: 2px solid lightyellow;
+        color: white;
+        background-color: orange;
+        width: 200px;
+        height: 70px;
+        border-radius: 5px;
+        }
+    button:hover{
+        background-color: rgb(138, 95, 15);
+    }
+    span{
+        font-family: alarm;
+        font-size: x-large;
+}
+</style>
+<body>
+    <h1>STOPWATCH</h1>
+    <h1>VANILLA JAVASCRIPT STOPWATCH</h1>
+    <span id="minutos"></span>:<span id="segundos"></span>:<span id="milisegundos"></span><br><br>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <button id="reset">Reset</button>
+</body>
+</html>

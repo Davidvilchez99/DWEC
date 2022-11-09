@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    window.onload = () => {
+        const btnTemaNormal = document.getElementById('temaNormal');
+        const btnTemaMinimalista = document.getElementById('temaMinimalista');
+        const colorFondo = document.getElementsByTagName('body');
+        const aside = document.getElementById('aside');
+        const pBotones = document.getElementById('pBotones');
+        const marcoFinal = document.getElementById('marcoFinal');
+        const parrafoFantasma = document.getElementById('parrafoFantasma');
+        const divBotones = document.getElementById('divBotones');
+        function quitarCSS(){
+            colorFondo[0].removeAttribute('style');
+            aside.removeAttribute('style');
+            divBotones.removeAttribute('style');
+            btnTemaMinimalista.removeAttribute('style');
+            pBotones.removeAttribute('style');
+            btnTemaNormal.removeAttribute('style');
+            marcoFinal.removeAttribute('style');
+            parrafoFantasma.style.visibility = 'hidden';
+        }
+        function ponerCSS(){
+            colorFondo[0].style.backgroundColor = "rgb(235, 235, 162)";
+            aside.style.backgroundColor = "blue";
+            aside.style.height = "100%";
+            aside.style.width = "20%";
+            aside.style.position = "absolute";
+            divBotones.style.marginLeft = "25%";
+            btnTemaMinimalista.style.color = "blue";
+            btnTemaNormal.style.color = "blue";
+            pBotones.style.border = "solid";
+            pBotones.style.borderColor = "blue";
+            pBotones.style.backgroundColor = "rgb(149, 149, 239)";
+            marcoFinal.style.border = "solid";
+            marcoFinal.style.borderColor = "black";
+            marcoFinal.style.backgroundColor = "yellow";
+            parrafoFantasma.style.visibility = 'visible';
+        }
+        btnTemaNormal.addEventListener('click', ponerCSS);
+        btnTemaMinimalista.addEventListener('click', quitarCSS);
+    }
+</script>
+
+<body style="background-color: rgb(235, 235, 162);">
+    <div id="aside" style="height: 100%; width: 20%; background-color: blue; position: absolute;"></div>
+    <div id="divBotones" style="margin-left: 25%;">
+        <p id="pBotones" style="border:solid blue; background-color: rgb(149, 149, 239);">
+            <button id="temaNormal" style="color:blue" >Tema Normal</button>
+            <button id="temaMinimalista" style="color:blue">Tema Minimalista</button>
+        </p>
+    <h1>Pagina de ejemplo</h1>
+    <p>En esta pagina vamos a comprobar lo facil que es aplicar estilos mediante css a un documento seleccionado</p>
+    <p>Lo ideal es que al seleccionar un estilo acste permanezca siempre igual para el usuario. Hasta ahora no hemos visto como hacerlo. A¿se te ocurre como podemos hacerlo?</p>
+    <p>Utilizando css podemos incluso ocultar partes del sitio</p>
+    <p id="parrafoFantasma"><b>Este parrafo debe ser solo visible en el tema Normal</b></p>
+    <p id="marcoFinal" style="border:solid black; background-color: yellow;">Esto esta dentro de un marco</p>
+    </div>
+</body>
+</html>

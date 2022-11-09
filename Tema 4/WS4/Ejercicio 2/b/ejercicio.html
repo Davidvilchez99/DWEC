@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href>
+</head>
+<script>
+    window.onload = () =>{
+        var tamañoFuente = 20;
+        const parrafos = document.getElementsByTagName('p');
+        const btnIncrementarFuente = document.getElementById('incrementarFuente');
+        const btnDecrementarFuente = document.getElementById('decrementarFuente');
+        const btnDefecto = document.getElementById('defecto');
+        const btnAlineacionIzq= document.getElementById('alineacionIzq');
+        const btnAlineacionJust= document.getElementById('alineacionJust');
+
+        btnIncrementarFuente.addEventListener('click', () =>{
+            tamañoFuente += 5;
+            for (i=0; i<parrafos.length; i++){
+                parrafos[i].style.fontSize = tamañoFuente+'px';
+            }
+        });
+
+        btnDecrementarFuente.addEventListener('click', () =>{
+            tamañoFuente -= 5;
+            for (i=0; i<parrafos.length; i++){
+                parrafos[i].style.fontSize = tamañoFuente+'px';
+            }
+        });
+
+        btnDefecto.addEventListener('click', () =>{
+            for (i=0; i<parrafos.length; i++){
+                parrafos[i].style.fontSize = 20+'px';
+            }
+        });
+
+        btnAlineacionIzq.addEventListener('click', () =>{
+            for (i=0; i<parrafos.length; i++){
+                parrafos[i].style.textAlign = 'left';
+            }
+        });
+
+        btnAlineacionJust.addEventListener('click', () =>{
+            for (i=0; i<parrafos.length; i++){
+                parrafos[i].style.textAlign = 'justify';
+            }
+        });
+        
+
+    }
+</script>
+<body>
+        <p style>Parrafo 1 Parrafo 1 Parrafo 1 Parrafo 1 Parrafo 1 Parrafo 1 Parrafo 1 Parrafo 1 Parrafo 1 Parrafo 1 Parrafo 1 Parrafo 1 Parrafo 1 Parrafo 1 Parrafo 1 Parrafo 1 Parrafo 1 Parrafo 1 Parrafo 1 Parrafo 1</p><br>
+        <p style>Parrafo 2 Parrafo 2 Parrafo 2 Parrafo 2 Parrafo 2 Parrafo 2 Parrafo 2 Parrafo 2 Parrafo 2 Parrafo 2 Parrafo 2 Parrafo 2 Parrafo 2 Parrafo 2 Parrafo 2 Parrafo 2 Parrafo 2 Parrafo 2 Parrafo 2 Parrafo 2</p><br>
+        <p style>Parrafo 3 Parrafo 3 Parrafo 3 Parrafo 3 Parrafo 3 Parrafo 3 Parrafo 3 Parrafo 3 Parrafo 3 Parrafo 3 Parrafo 3 Parrafo 3 Parrafo 3 Parrafo 3 Parrafo 3 Parrafo 3 Parrafo 3 Parrafo 3 Parrafo 3 Parrafo 3</p><br>
+        <p style>Parrafo 4 Parrafo 4 Parrafo 4 Parrafo 4 Parrafo 4 Parrafo 4 Parrafo 4 Parrafo 4 Parrafo 4 Parrafo 4 Parrafo 4 Parrafo 4 Parrafo 4 Parrafo 4 Parrafo 4 Parrafo 4 Parrafo 4 Parrafo 4 Parrafo 4 Parrafo 4</p><br>
+
+
+        <button id="incrementarFuente">Incrementar Fuente</button>
+        <button id="decrementarFuente">Decrementar Fuente</button>
+        <button id="defecto">Volver por defecto</button>
+        <button id="alineacionIzq">Alineacion Izquierda</button>
+        <button id="alineacionJust">Alineacion Justificada</button>
+</body>
+</html>

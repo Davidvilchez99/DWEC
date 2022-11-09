@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    window.onload = () =>{
+        const form = document.getElementById('form');
+        form.addEventListener('submit', (e) =>{
+            const btnEnviar = document.getElementById('btnEnviar');
+
+            const parametroNombreUsuario = document.getElementById('nombreUsuario').value;
+            const parametroNombre = document.getElementById('nombre').value;
+            const parametroApellidos = document.getElementById('apellidos').value;
+            const parametroDni = document.getElementById('dni').value;
+            const parametroCorreo = document.getElementById('correo').value;
+
+            const pNombreUsuario = document.getElementById('pNombreUsuario');
+            const pNombre = document.getElementById('pNombre');
+            const pApellidos = document.getElementById('pApellidos');
+            const pCorreo = document.getElementById('pCorreo');
+            const pDni = document.getElementById('pDni');
+
+            var validacionNombreUsuario = new RegExp(".{8,}");
+                if(parametroNombreUsuario.match(validacionNombreUsuario)){
+                    pNombreUsuario.innerHTML = "El formato es correcto";
+                }
+                else{
+                    pNombreUsuario.innerHTML = "El nombre de usuario debe tener 8 caracteres , al menos un dígito, al menos una minúscula, al menos una mayúscula y al menos un caracter no alfanumérico.";
+                    e.preventDefault();
+                }
+                
+            var validacionNombre = new RegExp(/^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]+[\s]*)+$/);
+                if(parametroNombre.match(validacionNombre)){
+                    pNombre.innerHTML = "El formato es correcto";
+                }
+                else{
+                    pNombre.innerHTML = "El nombre debe empezar por mayúscula.";
+                    e.preventDefault();
+                }
+
+            var validacionApellidos = new RegExp(/^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]+[\s]*)+$/);
+                if(parametroApellidos.match(validacionApellidos)){
+                    pApellidos.innerHTML = "El formato es correcto";
+                }
+                else{
+                    pApellidos.innerHTML = "El o los apellidos debe empezar por mayúscula.";
+                    e.preventDefault();
+                }
+
+            var validacionCorreo = new RegExp("^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$");
+                if(parametroCorreo.match(validacionCorreo)){
+                    pCorreo.innerHTML = "El formato es correcto";
+                }
+                else{
+                    pCorreo.innerHTML = "El parámetro debe tener el formato correcto de un email.";
+                    e.preventDefault();
+                }
+            
+            var validacionDni = new RegExp("^[0-9]{8,8}[A-Za-z]$");
+                if(parametroDni.match(validacionDni)){
+                    pDni.innerHTML = "El formato es correcto";
+                }
+                else{
+                    pDni.innerHTML = "El parámetro debe tener el formato correcto de un DNI.";
+                    e.preventDefault();
+                }
+        })
+    }
+</script>
+<style>
+p{
+    color: red;
+}
+</style>
+<body>
+    <form id="form">
+        <label>Nombre: </label><input id="nombre" type="text" required><p id="pNombre"></p>
+    <label>Apellidos: </label><input id="apellidos" type="text" required><p id="pApellidos"></p>
+    <label>DNI: </label><input id="dni" type="text"required><p id="pDni"></p>
+    <label>Correo: </label><input id="correo" type="text"required><p id="pCorreo"></p>
+    <label>Nombre de usuario: </label><input id="nombreUsuario" type="text"required><p id="pNombreUsuario"></p>
+    <input id="btnEnviar" type="submit" value="Enviar"><input id="btnLimpiar" type="reset" value="Limpiar">
+    </form>
+</body>
+</html>
